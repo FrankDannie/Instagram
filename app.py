@@ -19,10 +19,12 @@ Note: Ensure 'flaskr.sqlite' database is created and initialized before running.
 import sqlite3
 import os
 from flask import Flask, g, render_template, request, redirect, url_for, session, flash
+from flask_frozen import Freezer
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+freezer = Freezer(app)
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['DATABASE'] = os.path.join(app.instance_path, 'flaskr.sqlite')
@@ -135,4 +137,5 @@ def logout():
 
 if __name__ == '__main__':
     init_db()  # Initialize the database
+    freezer.freeze()
     app.run(debug=True)
