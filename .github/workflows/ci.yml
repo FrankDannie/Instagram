@@ -32,11 +32,10 @@ jobs:
           pip cache purge
 
 
-      - name: Start Flask Application
+      - name: Build static files
         run: |
-          python app.py &
+          python app.py build 
           mv build docs
-          sleep 3 
 
       - name: Github Deployment
         run: |
