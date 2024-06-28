@@ -21,10 +21,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install --upgrade pip setuptools wheel
-          pip uninstall -y setuptools
-          pip install setuptools
           pip install -r requirements.txt  # Adjust as per your requirements
+          pip install --upgrade pip setuptools wheel
+          pip cache purge
+          sudo apt-get install python3-dev build-essential
 
       - name: Start Flask Application
         run: |
