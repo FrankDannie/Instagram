@@ -27,7 +27,7 @@ jobs:
           pip cache purge
 
       - name: Build static files with timeout
-        run: build_with_timeout.bat
+        run: .\build_with_timeout.bat
 
       - name: Run Flask Application
         run: |
