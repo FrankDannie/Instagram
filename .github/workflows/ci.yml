@@ -34,4 +34,4 @@ jobs:
 
       - name: GitHub Deployment
         run: |
-          mv build/* docs/
+          mv build/* root/
