@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Home</h1>
+    {% for post in posts %}
+        <div class="post">
+            <p>{{ post[1] }}</p>
+            <img src="{{ url_for('static', filename='uploads/' + post[0]) }}" alt="Post image">
+        </div>
+    {% endfor %}
+{% endblock %}
