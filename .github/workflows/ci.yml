@@ -26,13 +26,17 @@ jobs:
           pip install -r requirements.txt
           pip cache purge
 
-      - name: Build static files with timeout
-        run: .\build_with_timeout.bat
-
       - name: Run Flask Application
         run: |
-          python app.py &
-          timeout /t 3 /nobreak
+          python app.py &  # Run Flask application in the background
+          sleep 5  # Wait for Flask to start (adjust as needed)
+          echo "Flask application started"
+
+      - name: Stop Flask Application
+        run: |
+          kill $(ps aux | grep '[p]ython app.py' | awk '{print $2}')
+          echo "Flask application stopped"
+
 
       - name: GitHub Deployment
         run: |
