@@ -21,16 +21,17 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Adjust as per your requirements
+          pip install -r requirements.txt
           pip install --upgrade pip setuptools wheel
           pip cache purge
           sudo apt-get install python3-dev build-essential
+
 
       - name: Start Flask Application
         run: |
           python app.py &
           mv build docs
-          sleep 3  # Allow time for the Flask app to start
+          sleep 3 
 
       - name: Github Deployment
         run: |
