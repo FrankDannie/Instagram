@@ -1,21 +1,3 @@
-"""
-Flask Instagram Web Application.
-
-This module implements a Flask application for a simple Instagram-like web
-application. It includes routes for user registration, login, uploading images,
-and displaying posts.
-
-Dependencies:
-- Flask
-- Werkzeug
-- SQLite3
-
-Usage:
-Run this module directly to start the Flask web server:
-    $ python app.py
-
-Note: Ensure 'flaskr.sqlite' database is created and initialized before running.
-"""
 import sqlite3
 import os
 from flask import Flask, g, render_template, request, redirect, url_for, session, flash
@@ -28,6 +10,7 @@ freezer = Freezer(app)
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['DATABASE'] = os.path.join(app.instance_path, 'flaskr.sqlite')
+app.config['BASE_URL'] = os.getenv('BASE_URL')
 
 def get_db():
     if 'db' not in g:
@@ -43,7 +26,6 @@ def close_db(error):
     if hasattr(g, 'db'):
         g.db.close()
 
-
 def init_db():
     with app.app_context():
         db = get_db()
@@ -56,6 +38,10 @@ def init_db_command():
     """Clear existing data and create new tables."""
     init_db()
     print('Initialized the database.')
+
+@app.context_processor
+def inject_base_url():
+    return dict(base_url=app.config['BASE_URL'], url_for=lambda endpoint, **values: url_for(endpoint, **values))
 
 @app.route('/')
 def home():
@@ -82,11 +68,6 @@ def login():
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
-
-@app.route('/register', methods=['GET', 'POST'])
-
-@app.route('/register', methods=['GET', 'POST'])
-
 def register():
     if request.method == 'POST':
         username = request.form['username']
@@ -104,7 +85,6 @@ def register():
         except sqlite3.IntegrityError:
             flash('Username already exists')
     return render_template('register.html')
-
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
