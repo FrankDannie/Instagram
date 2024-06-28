@@ -32,12 +32,6 @@ jobs:
           sleep 5  # Wait for Flask to start (adjust as needed)
           echo "Flask application started"
 
-      - name: Stop Flask Application
-        run: |
-          kill $(ps aux | grep '[p]ython app.py' | awk '{print $2}')
-          echo "Flask application stopped"
-
-
       - name: GitHub Deployment
         run: |
           # Additional deployment steps if any
