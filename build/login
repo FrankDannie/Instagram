@@ -10,8 +10,8 @@
     <nav>
         <a href="/Instagram/">Home</a>
         
-            <a href="/Instagram/login">Login</a>
-            <a href="/Instagram/register">Register</a>
+            <a href="/Instagram/login.html">Login</a>
+            <a href="/Instagram/register.html">Register</a>
         
     </nav>
     <div class="container">
