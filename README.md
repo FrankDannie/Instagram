@@ -1,19 +1,8 @@
 # Instagram Clone
 This is a simple HTML-based Instagram clone with separate pages for Home, Login, and Register.
 
-## Project Structure
-scss
-Copy code
-/Instagram/
-│
-├── index.html         (Home page)
-├── login.html         (Login page)
-├── register.html      (Register page)
-└── static/
-    └── css/
-        └── styles.css
-    └── uploads/
-        └── 77b85120-4f55-4d02-966e-bc6d204a4ae5.png
+LIVE PROJECT IN : https://frankdannie.github.io/Instagram/
+
 ### Files and Directories
 index.html: This is the main home page of the Instagram clone.
 login.html: This page contains the login form.
