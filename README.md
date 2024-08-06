@@ -12,9 +12,10 @@ static/uploads/77b85120-4f55-4d02-966e-bc6d204a4ae5.png: This is an example imag
 ### How to Use
 Clone the Repository
 
-###bash
-`git clone https://github.com/your-username/instagram-clone.git`
-`cd instagram-clone/Instagram`
+```sh
+git clone https://github.com/your-username/instagram-clone.git
+cd instagram-clone/Instagram
+```
 Open index.html in Your Browser
 
 Open the index.html file in a web browser to view the home page.
